@@ -394,12 +394,15 @@ var adjectives = {
   ]
 }
 
+const voca = require('voca')
+
 module.exports = {
   get: function (letter) {
     var shortList = adjectives[letter]
 
     if (shortList) {
-      return shortList[Math.random() * shortList.length]
+      var index = Math.floor(Math.random() * (shortList.length))
+      return voca.capitalize(shortList[index])
     } else {
       return ''
     }
